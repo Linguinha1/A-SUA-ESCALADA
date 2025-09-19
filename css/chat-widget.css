@@ -1,0 +1,640 @@
+/* Estilo do widget */
+.whatsapp-widget {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+body, .whatsapp-widget, .whatsapp-message-box, .chat-body,  #attendant-name,button#close-chat,.title_form {
+    font-family: 'Open Sans', sans-serif;
+}
+.title_form{
+    padding: 10px 0!important;
+    margin:0!important;
+    font-size:12px;
+}
+
+hr {
+    border: none; /* Remove a borda padrão */
+    border-top: 1px solid rgba(0, 0, 0, 0.1); /* Cria uma linha sutil com opacidade */
+    margin: 20px 0; /* Espaçamento acima e abaixo */
+    width: 100%; /* Preenche 100% da largura do container */
+    height: 1px; /* Define a altura da linha */
+    background-color: transparent; /* Transparente para garantir suavidade */
+}
+
+
+.whatsapp-message-box {
+    background-color: #25D366;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 200px;
+    display: none;
+}
+
+.whatsapp-chatbox {
+    position: fixed;
+    bottom: 130px;
+    right: 30px;
+    width: 400px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column; /* Organiza o conteúdo em coluna */
+    height: 400px; /* Ajuste para uma altura fixa maior */
+    max-height: 80vh; /* Limite a altura máxima para não ultrapassar a tela */
+    overflow: hidden; /* Impede o conteúdo de transbordar */
+}
+
+.chat-header {
+    background-color: #25D366; /* Mantém o verde do seu estilo */
+    color: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px 10px 0 0;
+    position: relative;
+    gap: 10px; /* Adiciona um espaço entre os elementos */
+}
+
+.chat-body {
+    flex-grow: 1; /* Faz o corpo do chat preencher o espaço restante */
+    padding: 10px;
+    font-size: 15px;
+    overflow-y: auto; /* Adiciona rolagem quando o conteúdo exceder a altura */
+    max-height: calc(100% - 120px); /* Ajuste para manter uma margem com o rodapé */
+}
+
+#interest-btn{
+    background: #2ecc71;
+    padding: 10px;
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#whatsapp-form {
+    margin-top: 10px;
+}
+
+#whatsapp-form input {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+}
+
+/**/
+
+.attendant-photo-container {
+    width: 50px; /* Tamanho reduzido da foto para o cabeçalho */
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.attendant-photo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.attendant-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+#attendant-name {
+    font-size: 16px;
+    margin: 0;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+#attendant-status {
+    font-size: 12px;
+    color: #e0ffe6; /* Cor mais clara para o status */
+    margin: 0;
+}
+
+button#close-chat {
+    background-color: transparent;
+    border: 2px solid white; /* Borda branca de 2px */
+    color: white;
+    font-size: 14px; /* Ajuste o tamanho para dar mais destaque */
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: auto;
+    padding: 5px; /* Reduza o padding para um tamanho de botão mais compacto */
+    border-radius: 50%; /* Torna o botão circular */
+    width: 40px; /* Define uma largura fixa para o botão */
+    /*height: 25px; /* Define uma altura fixa para o botão */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/**/
+.attendant-message-box {
+    position: absolute;
+    right: 140px;
+    background-color: #fff;
+    color: #000;
+    padding: 10px;
+    font-size: 16px;
+    z-index: 9999;
+    display: block;
+    position: fixed;
+    bottom: 30px;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow suave */
+    max-width: 550px;
+}
+
+
+.attendant-message-box:before {
+    content: "";
+    position: absolute;
+    right: -10px;
+    top: 55%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-left: 10px solid #fff;
+    border-bottom: 10px solid transparent;
+}
+
+p#first-message,p#last-message {
+    background: #f2f2f2;
+    border-radius: 5px;
+    padding: 10px;
+    font-size:13px;
+}
+
+
+/* Garantir que a foto do atendente tenha position relative para a bolinha ficar dentro dela */
+#whatsapp-photo {
+    position: relative;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+    margin-right: 10px;
+    display: flex;
+    background-color: white;
+    border: 1px solid;
+}
+
+#whatsapp-photo img, #attendant-photo {
+    width: 100%; /* Ajustar a imagem para ocupar 100% da largura da bolinha */
+    height: 100%; /* Ajustar a imagem para ocupar 100% da altura da bolinha */
+    object-fit: cover; /* Isso garante que a imagem mantenha sua proporção e seja cortada para se ajustar à bolinha */
+    border-radius: 50%; /* Garantir que a imagem também seja redonda */
+    background-color: #fff;
+}
+
+.status-indicator {
+    position: absolute;
+    bottom: 12px;
+    right: 6px;
+    width: 17px;
+    height: 17px;
+    background-color: #2ecc71;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+
+
+
+/* Pseudo-elementos para o efeito de pulsação */
+#whatsapp-photo::before, #whatsapp-photo::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Colocar a animação atrás da imagem */
+    border: 2px solid #25D366; /* Cor do efeito */
+    opacity: 0; /* Começar invisível */
+    transition: opacity 0.4s, transform 0.4s;
+    animation: none;
+}
+
+/* Quando o mouse passar por cima, ativar a animação */
+#whatsapp-photo:hover::before, #whatsapp-photo:hover::after {
+    opacity: 1;
+    animation: pulsate 1.5s infinite;
+}
+
+/* Animação de pulsação */
+@keyframes pulsate {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.3); /* Aumentar a escala da borda */
+        opacity: 0.5; /* Reduzir a opacidade no meio da animação */
+    }
+    100% {
+        transform: scale(1.6); /* Máxima escala da borda */
+        opacity: 0; /* Desaparecer no final da animação */
+    }
+}
+
+
+.message-with-photo {
+    display: flex;
+    align-items: center;
+}
+
+.message-photo {
+    width: 30px; /* Tamanho menor da foto ao lado da mensagem */
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+
+#whatsapp-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+#whatsapp-form label {
+    font-size: 14px;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#whatsapp-form input[type="text"],
+#whatsapp-form input[type="tel"],
+#whatsapp-form textarea,
+#whatsapp-form select {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: border-color 0.3s;
+}
+
+#whatsapp-form input[type="text"]:focus,
+#whatsapp-form input[type="tel"]:focus,
+#whatsapp-form textarea:focus,
+#whatsapp-form select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+#whatsapp-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+#whatsapp-form select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23007bff' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+    background-size: 12px;
+}
+
+#whatsapp-form button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#whatsapp-form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+#whatsapp-form button[type="submit"]:active {
+    background-color: #004085;
+}
+
+
+#success-message {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    padding: 15px;
+    margin-top: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-size: 16px;
+    height: 60px;
+    white-space:nowrap;
+}
+
+#success-message strong {
+    font-weight: bold;
+}
+
+
+/* Estilo para o indicador de digitação */
+#typing-indicator {
+    display: flex;
+    gap: 4px;
+    justify-content: flex-start; /* Alinha o indicador de digitação à esquerda */
+    padding: 10px;
+    background-color: #f2f2f2;
+    border-radius: 15px;
+    border-top-left-radius: 0;
+    max-width: 50%;
+}
+
+#typing-indicator span {
+    width: 12px;
+    height: 12px;
+    background-color: #ccc;
+    border-radius: 50%;
+    animation: blink 1s infinite alternate;
+}
+
+/* Animação de piscar para o indicador de digitação */
+@keyframes blink {
+    0% {
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+#typing-indicator span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+#typing-indicator span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+
+#interest-btn{
+    display: none;
+}
+
+
+#whatsapp-photo {
+    animation: cJoqxJ 1s ease-in-out forwards, jbWYBY 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+    transform: translate3d(0px, 0px, 0px);
+}
+
+/* Definir a animação 'cJoqxJ' */
+@keyframes cJoqxJ {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Definir a animação 'jbWYBY' */
+@keyframes jbWYBY {
+    0% {
+        transform: translate3d(-30px, 0px, 0px);
+    }
+    100% {
+        transform: translate3d(0px, 0px, 0px);
+    }
+}
+
+p#success-message {
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+    background-color: #e0f7fa;
+    border-radius: 5px;
+    display: block;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    word-break: break-word;
+    height: 80px;
+}
+
+.chat-footer-iteracao {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    background-color: #f9f9f9;
+    border-radius: 0 0 10px 10px;
+}
+
+.chat-footer-iteracao input[type="text"] {
+    flex-grow: 1;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    color: #333;
+    margin-right: 10px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s;
+}
+
+.chat-footer-iteracao input[type="text"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.chat-footer-iteracao button {
+    padding: 10px 20px;
+    background-color: #25D366;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.chat-footer-iteracao button:hover {
+    background-color: #1ebd5b;
+}
+
+/* Balão de mensagem do atendente */
+.bot-message {
+    background-color: #f2f2f2;
+    color: #333;
+    padding: 12px 18px;
+    border-radius: 18px 18px 18px 0px;
+    margin: 10px 0;
+    max-width: 70%;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: normal;
+}
+
+/* Balão de mensagem do usuário */
+.user-message {
+    background-color: #25D366;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 18px 18px 0px 18px;
+    margin: 10px 0;
+    max-width: 70%;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: normal;
+    text-align: right;
+    align-self: flex-end; /* Alinha o balão do usuário à direita */
+}
+
+
+/* Ajustes para o container da conversa */
+.chat-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.chat-message {
+    clear: both;
+}
+
+/* Estilo personalizado para o select de país */
+.country-select-container {
+    margin-top: 10px;
+    width: 100%;
+}
+
+#country-select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    background-color: #f7f7f7;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+#country-select:focus {
+    border-color: #25D366;
+    outline: none;
+}
+
+
+.checkbox-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.checkbox-container label {
+    display: flex;
+    align-items: center;
+    padding: 5px 15px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.checkbox-container input[type="radio"] {
+    display: none;
+}
+
+.checkbox-container input[type="radio"]:checked + label {
+    background-color: #25D366;
+    color: white;
+}
+
+
+/* Ajusta o layout da mensagem com foto do atendente */
+/* Contêiner principal para a mensagem e a imagem */
+.message-wrapper {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px; /* Espaçamento entre mensagens */
+}
+
+/* Estilo da foto do atendente */
+.attendant-photo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 15px 10px 0px 0px;
+    border: 1px solid;
+}
+
+/* Estilo do balão de mensagem do atendente */
+.bot-message {
+    background-color: #f2f2f2;
+    color: #333;
+    padding: 10px 15px;
+    border-radius: 10px;
+    max-width: 70%;
+    font-size: 14px;
+}
+
+/* Estilo do balão de mensagem do usuário */
+.user-message {
+    background-color: #25D366;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 10px;
+    max-width: 70%;
+    font-size: 14px;
+    margin-left: auto; /* Alinha o balão do usuário à direita */
+}
+
+
+/* Ajuste para dispositivos móveis */
+@media (max-width: 768px) {
+    .whatsapp-chatbox {
+        width: 100% !important; /* Ocupa toda a largura no mobile */
+        right: 0; /* Alinha à direita */
+        bottom: 0; /* Alinha ao fundo da tela */
+        border-radius: 0; /* Remove bordas arredondadas para uma aparência fullwidth */
+        height: 100vh; /* Ajusta para ocupar toda a altura da tela, opcional */
+        max-height: 100vh; /* Limita a altura máxima no mobile */
+    }
+
+    .chat-body {
+        max-height: calc(100vh - 150px); /* Ajusta a altura do corpo do chat no mobile */
+    }
+
+}
